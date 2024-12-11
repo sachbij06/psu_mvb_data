@@ -1,0 +1,142 @@
+[
+    {
+      "name": "Jake Tidik",
+      "jersey_number": 1,
+      "position": "Setter",
+      "class": "Freshman",
+      "headshot": "static/headshots/tidik.png"
+    },
+    {
+      "name": "Bennett Wilson",
+      "jersey_number": 2,
+      "position": "Outside Hitter",
+      "class": "Freshman",
+      "headshot": "static/headshots/wilson.png"
+    },
+    {
+      "name": "Carter Dittman",
+      "jersey_number": 3,
+      "position": "Outside Hitter",
+      "class": "Sophomore",
+      "headshot": "static/headshots/dittman.png"
+    },
+    {
+      "name": "Matt Cosgrove",
+      "jersey_number": 5,
+      "position": "Outside Hitter",
+      "class": "Redshirt Junior",
+      "headshot": "static/headshots/cosgrove.png"
+    },
+    {
+      "name": "Ryan Merk",
+      "jersey_number": 7,
+      "position": "Libero",
+      "class": "Redshirt Junior",
+      "headshot": "static/headshots/merk.png"
+    },
+    {
+      "name": "Jaidyn Bethel",
+      "jersey_number": 8,
+      "position": "Outside Hitter",
+      "class": "Freshman",
+      "headshot": "static/headshots/bethel.png"
+    },
+    {
+      "name": "Gaige Gabriel",
+      "jersey_number": 9,
+      "position": "Middle Blocker",
+      "class": "Freshman",
+      "headshot": "static/headshots/gabriel.png"
+    },
+    {
+      "name": "Michael Schwob",
+      "jersey_number": 10,
+      "position": "Setter",
+      "class": "Sophomore",
+      "headshot": "static/headshots/schwob.png"
+    },
+    {
+      "name": "Josh Rosenblum",
+      "jersey_number": 11,
+      "position": "Setter",
+      "class": "Redshirt Junior",
+      "headshot": "static/headshots/rosenblum.png"
+    },
+    {
+      "name": "Sean Harvey",
+      "jersey_number": 12,
+      "position": "Outside Hitter/OPP",
+      "class": "Redshirt Freshman",
+      "headshot": "static/headshots/harvey.png"
+    },
+    {
+      "name": "Owen Rose ⓒ",
+      "jersey_number": 13,
+      "position": "Middle Blocker",
+      "class": "Redshirt Junior",
+      "headshot": "static/headshots/rose.png"
+    },
+    {
+      "name": "Zach Stowe",
+      "jersey_number": 14,
+      "position": "Middle Blocker",
+      "class": "Sophomore",
+      "headshot": "static/headshots/stowe.png"
+    },
+    {
+      "name": "Matthew Luoma",
+      "jersey_number": 15,
+      "position": "Outside Hitter/Opposite",
+      "class": "Redshirt Sophomore",
+      "headshot": "static/headshots/luoma.png"
+    },
+    {
+      "name": "Blainey Jones",
+      "jersey_number": 16,
+      "position": "Outside Hitter",
+      "class": "Redshirt Sophomore",
+      "headshot": "static/headshots/jones.png"
+    },
+    {
+      "name": "Will Kuhns ⓒ",
+      "jersey_number": 17,
+      "position": "Outside Hitter",
+      "class": "Redshirt Senior",
+      "headshot": "static/headshots/kuhns.png"
+    },
+    {
+      "name": "Ryan Pecora",
+      "jersey_number": 18,
+      "position": "Middle Blocker",
+      "class": "Freshman",
+      "headshot": "static/headshots/pecora.png"
+    },
+    {
+      "name": "Christian Couch",
+      "jersey_number": 19,
+      "position": "Opposite",
+      "class": "Freshman",
+      "headshot": "static/headshots/couch.png"
+    },
+    {
+      "name": "Miller Trubey",
+      "jersey_number": 20,
+      "position": "Opposite",
+      "class": "Redshirt Sophomore",
+      "headshot": "static/headshots/trubey.png"
+    },
+    {
+      "name": "Nate Egerstrom",
+      "jersey_number": 21,
+      "position": "Middle Blocker",
+      "class": "Redshirt Freshman",
+      "headshot": "static/headshots/egerstrom.png"
+    },
+    {
+      "name": "Cole Ignaszak",
+      "jersey_number": 22,
+      "position": "Opposite",
+      "class": "Redshirt Junior",
+      "headshot": "static/headshots/ignaszak.png"
+    }
+  ]
