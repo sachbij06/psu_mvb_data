@@ -250,6 +250,23 @@
         footer p {
             font-size: 14px;
         }
+
+        /* Active State for Buttons */
+        .tabs button.active {
+            background-color: #18254696; 
+            transform: scale(1.05);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .practice-filter button.active {
+            background-color: #26457D; 
+            transform: scale(1.05); 
+        }
+
+        .dropdown button.active {
+            background-color: #f0f0f0;
+        }
+
     </style>
     
 
@@ -343,7 +360,15 @@
 
         function showStats(category) {
             const statsContainer = document.getElementById('stats-container');
-            
+            const tabs = document.querySelectorAll('.tabs button');
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+
+            const activeTab = [...tabs].find(tab => tab.innerText.toLowerCase() === category);
+            if (activeTab) activeTab.classList.add('active');
+
+            // Update stats content
+            statsContainer.innerHTML = `<p>Displaying your ${category} stats...</p>`;
 
             if(category == "setting") {
                 statsContainer.innerHTML = `<p>Displaying your setting stats...</p>`;
@@ -386,132 +411,134 @@
                         <p>#${player.jersey_number} - ${player.position}   |   ${player.class}</p>`;
                 });
         }
-
+        
         const practiceData = [
         { date: '2024-12-11', name: '12/11' },
         { date: '2024-12-10', name: '12/10' },
         { date: '2024-12-09', name: '12/09' },
         { date: '2024-11-24', name: '11/24' },
         { date: '2024-11-08', name: '11/08' }
-    ];
+        ];
 
-    function filterPractices(filterType) {
-        const selectedPractices = document.getElementById('selectedPractices');
-    const dropdownContainer = document.getElementById('practiceDropdownContainer');
-    selectedPractices.innerHTML = ''; // Clear existing selected practices
+        function filterPractices(filterType) {
+            const filterButtons = document.querySelectorAll('.practice-filter button');
+            filterButtons.forEach(button => button.classList.remove('active'));
 
-    const now = new Date();
-    let filteredPractices = [];
+            const clickedButton = [...filterButtons].find(button => button.innerText.toLowerCase().includes(filterType));
+            if (clickedButton) clickedButton.classList.add('active');
 
-    switch (filterType) {
-        case 'lastWeek':
-            dropdownContainer.style.display = 'none'; // Hide dropdown
-            const lastWeek = new Date();
-            lastWeek.setDate(now.getDate() - 7);
-            filteredPractices = practiceData.filter(practice => new Date(practice.date) >= lastWeek);
-            break;
+            const selectedPractices = document.getElementById('selectedPractices');
+            const dropdownContainer = document.getElementById('practiceDropdownContainer');
+            selectedPractices.innerHTML = '';
 
-        case 'lastMonth':
-            dropdownContainer.style.display = 'none'; // Hide dropdown
-            const lastMonth = new Date();
-            lastMonth.setMonth(now.getMonth() - 1);
-            filteredPractices = practiceData.filter(practice => new Date(practice.date) >= lastMonth);
-            break;
+            const now = new Date();
+            let filteredPractices = [];
 
-        case 'allTime':
-            dropdownContainer.style.display = 'none'; // Hide dropdown
-            filteredPractices = practiceData; // Include all practices
-            break;
+            switch (filterType) {
+                case 'lastWeek':
+                    dropdownContainer.style.display = 'none';
+                    const lastWeek = new Date();
+                    lastWeek.setDate(now.getDate() - 7);
+                    filteredPractices = practiceData.filter(practice => new Date(practice.date) >= lastWeek);
+                    break;
 
-        case 'specific':
-            dropdownContainer.style.display = 'block'; // Show dropdown
-            return; // Exit the function to allow manual selection
-    }
+                case 'lastMonth':
+                    dropdownContainer.style.display = 'none';
+                    const lastMonth = new Date();
+                    lastMonth.setMonth(now.getMonth() - 1);
+                    filteredPractices = practiceData.filter(practice => new Date(practice.date) >= lastMonth);
+                    break;
 
-    // Render filtered practices
-    filteredPractices.forEach(practice => {
-        const span = document.createElement('span');
-        span.textContent = practice.name;
-        span.className = 'selected-practice';
+                case 'allTime':
+                    dropdownContainer.style.display = 'none';
+                    filteredPractices = practiceData;
+                    break;
 
-        const removeButton = document.createElement('span');
-        removeButton.textContent = '×';
-        removeButton.classList.add('remove');
+                case 'specific':
+                    dropdownContainer.style.display = 'block';
+                    return; 
+            }
 
-        removeButton.addEventListener('click', () => {
-            selectedPractices.removeChild(span);
-        });
+            // Render filtered practices
+            filteredPractices.forEach(practice => {
+                const span = document.createElement('span');
+                span.textContent = practice.name;
+                span.className = 'selected-practice';
 
-        span.appendChild(removeButton);
-        selectedPractices.appendChild(span);
-    });
+                const removeButton = document.createElement('span');
+                removeButton.textContent = '×';
+                removeButton.classList.add('remove');
 
-    dropdownContainer.style.display = 'none'; // Ensure dropdown remains hidden for predefined filters
-}
+                removeButton.addEventListener('click', () => {
+                    selectedPractices.removeChild(span);
+                });
 
-    function populateDropdown(dropdownId, practices) {
-        const dropdown = document.getElementById(dropdownId);
-        dropdown.innerHTML = ''; // Clear existing buttons
-
-        practices.forEach(practice => {
-            const button = document.createElement('button');
-            button.textContent = practice.name;
-            button.setAttribute('data-item', practice.name);
-
-            // Attach click listener to handle selection
-            button.addEventListener('click', (event) => {
-                const selectedContainer = document.getElementById('selectedPractices');
-                const item = event.target.getAttribute('data-item');
-
-                // Check if the practice is already selected
-                if (!Array.from(selectedContainer.children).some(span => span.textContent.includes(item))) {
-                    const itemSpan = document.createElement('span');
-                    itemSpan.textContent = item;
-
-                    const removeButton = document.createElement('span');
-                    removeButton.textContent = '×';
-                    removeButton.classList.add('remove');
-
-                    // Remove the item when clicked
-                    removeButton.addEventListener('click', () => {
-                        selectedContainer.removeChild(itemSpan);
-                        button.classList.remove('hidden');
-                    });
-
-                    itemSpan.appendChild(removeButton);
-                    selectedContainer.appendChild(itemSpan);
-                }
-
-                // Hide the button to indicate it is selected
-                button.classList.add('hidden');
+                span.appendChild(removeButton);
+                selectedPractices.appendChild(span);
             });
 
-            dropdown.appendChild(button);
-        });
+            dropdownContainer.style.display = 'none';
     }
 
-    function setupDropdown(selectedContainerId, dropdownId) {
-        const selectedContainer = document.getElementById(selectedContainerId);
-        const dropdown = document.getElementById(dropdownId);
+        function populateDropdown(dropdownId, practices) {
+            const dropdown = document.getElementById(dropdownId);
+            dropdown.innerHTML = '';
 
-        // Show dropdown when the selected area is clicked
-        selectedContainer.addEventListener('click', () => {
-            dropdown.style.display = 'block';
-        });
+            practices.forEach(practice => {
+                const button = document.createElement('button');
+                button.textContent = practice.name;
+                button.setAttribute('data-item', practice.name);
 
-        // Hide dropdown if clicked outside
-        document.addEventListener('click', (event) => {
-            if (!selectedContainer.contains(event.target) && !dropdown.contains(event.target)) {
-                dropdown.style.display = 'none';
-            }
-        });
-    }
+                button.addEventListener('click', (event) => {
+                    const selectedContainer = document.getElementById('selectedPractices');
+                    const item = event.target.getAttribute('data-item');
 
-    // Initialize dropdown and filters on page load
-    window.onload = () => {
-        populateDropdown('practiceDropdown', practiceData); // Populate dropdown with practice data
-        setupDropdown('selectedPractices', 'practiceDropdown'); // Setup dropdown interaction
-    };
+                    if (!Array.from(selectedContainer.children).some(span => span.textContent.includes(item))) {
+                        const itemSpan = document.createElement('span');
+                        itemSpan.textContent = item;
+
+                        const removeButton = document.createElement('span');
+                        removeButton.textContent = '×';
+                        removeButton.classList.add('remove');
+
+                        removeButton.addEventListener('click', () => {
+                            selectedContainer.removeChild(itemSpan);
+                            button.classList.remove('hidden');
+                        });
+
+                        itemSpan.appendChild(removeButton);
+                        selectedContainer.appendChild(itemSpan);
+                    }
+
+                    button.classList.add('hidden');
+                });
+
+                dropdown.appendChild(button);
+            });
+        }
+
+        function setupDropdown(selectedContainerId, dropdownId) {
+            const selectedContainer = document.getElementById(selectedContainerId);
+            const dropdown = document.getElementById(dropdownId);
+
+            // Show dropdown when the selected area is clicked
+            selectedContainer.addEventListener('click', () => {
+                dropdown.style.display = 'block';
+            });
+
+            // Hide dropdown if clicked outside
+            document.addEventListener('click', (event) => {
+                if (!selectedContainer.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize dropdown and filters on page load
+        window.onload = () => {
+            populateDropdown('practiceDropdown', practiceData); // Populate dropdown with practice data
+            setupDropdown('selectedPractices', 'practiceDropdown'); // Setup dropdown interaction
+        };
     </script>
 </body>
 </html>
