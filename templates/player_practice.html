@@ -61,7 +61,7 @@
         }
     
         .tabs button:hover {
-            background-color: #18254696;
+            background-color: #1e407c;
             transform: scale(1.05);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
@@ -221,8 +221,8 @@
         }
     
         .practice-filter button:hover {
-            background-color: #26457D;
-            transform: scale(1.05);
+            background-color: #1e407c;
+            transform: scale(1.075);
         }
     
         .dashboard {
@@ -253,14 +253,14 @@
 
         /* Active State for Buttons */
         .tabs button.active {
-            background-color: #18254696; 
+            background-color: #1e407c; 
             transform: scale(1.05);
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .practice-filter button.active {
-            background-color: #26457D; 
-            transform: scale(1.05); 
+            background-color: #1e407c; 
+            transform: scale(1.075); 
         }
 
         .dropdown button.active {
@@ -361,38 +361,42 @@
         function showStats(category) {
             const statsContainer = document.getElementById('stats-container');
             const tabs = document.querySelectorAll('.tabs button');
+
+            // Remove active state from all tabs
             tabs.forEach(tab => tab.classList.remove('active'));
 
+            // Add active state to the clicked tab
+            tabs.forEach(tab => {
+                if (tab.getAttribute('onclick').includes(category)) {
+                    tab.classList.add('active');
+                }
+            });
 
-            const activeTab = [...tabs].find(tab => tab.innerText.toLowerCase() === category);
-            if (activeTab) activeTab.classList.add('active');
-
-            // Update stats content
-            statsContainer.innerHTML = `<p>Displaying your ${category} stats...</p>`;
 
             if(category == "setting") {
-                statsContainer.innerHTML = `<p>Displaying your setting stats...</p>`;
+                statsContent = `<p>Displaying your setting stats...</p>`;
 
 
             }
 
             if(category == "attacking") {
-                statsContainer.innerHTML = `<p>Displaying your attacking stats...</p>`;
+                statsContent = `<p>Displaying your attacking stats...</p>`;
 
 
             }
 
             if(category == "serving") {
-                statsContainer.innerHTML = `<p>Displaying your serving stats...</p>`;
+                statsContent = `<p>Displaying your serving stats...</p>`;
 
 
             }
             
             if(category == "passing") {
-                statsContainer.innerHTML = `<p>Displaying your passing stats...</p>`;
+                statsContent = `<p>Displaying your passing stats...</p>`;
 
 
             }
+            statsContainer.innerHTML = statsContent;
         }
 
         // Update player profile based on selection
@@ -418,13 +422,13 @@
         { date: '2024-12-09', name: '12/09' },
         { date: '2024-11-24', name: '11/24' },
         { date: '2024-11-08', name: '11/08' }
-        ];
+    ];
 
         function filterPractices(filterType) {
             const filterButtons = document.querySelectorAll('.practice-filter button');
             filterButtons.forEach(button => button.classList.remove('active'));
 
-            const clickedButton = [...filterButtons].find(button => button.innerText.toLowerCase().includes(filterType));
+            const clickedButton = [...filterButtons].find(button => button.getAttribute('onclick').includes(filterType));
             if (clickedButton) clickedButton.classList.add('active');
 
             const selectedPractices = document.getElementById('selectedPractices');
