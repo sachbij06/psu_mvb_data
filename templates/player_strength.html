@@ -7,23 +7,35 @@
 <body>
     <!-- HEADER -->
     <header>
-        <div class="logo-container">
-            <a href="/home">
-                <img src="static/psu_logo.png" alt="PSU Logo" class="logo">
-            </a>
-            <h1>Penn State Men's Volleyball</h1>
-            <h1>—</h1>
-            <h1>Strength and Conditioning Data</h1>
-        </div>
-        <nav>
-            <ul class="tabs">
-                <li><button onclick="location.href='/team_strength'">Team Strength Data</button></li>
-                <li><button onclick="location.href='/player_practice'">Player Play Data</button></li>
-                <li><button onclick="location.href='/player_strength'">Player Strength Data</button></li>
-                <li><button onclick="location.href='/home'">Home</button></li>
-            </ul>
-        </nav>
-    </header>
+    <div class="logo-container">
+        <a href="/home">
+            <img src="static/psu_logo.png" alt="PSU Logo" class="logo">
+        </a>
+        <h1>Penn State Men's Volleyball</h1>
+    </div>
+    <nav>
+        <ul class="tabs">
+            <li class="dropdown">
+                <button onclick="toggleDropdown('teamDropdown')" class="dropbtn">Team</button>
+            </li>
+            <div id="teamDropdown" class="dropdown-content">
+                <a href="/team_strength">Strength & Conditioning</a>
+                <a href="/team_practice">On-Court Performance</a>
+            </div>
+            <li class="dropdown">
+                <button onclick="toggleDropdown('individualDropdown')" class="dropbtn">Individual</button>
+                
+            </li>
+            <div id="individualDropdown" class="dropdown-content">
+                <a href="/player_strength">Strength & Conditioning</a>
+                <a href="/player_practice">On-Court Performance</a>
+            </div>
+        </ul>
+    </nav>
+</header>
+
+
+
 
     <!-- MAIN CONTENT -->
     <div class="main-container">
@@ -122,6 +134,25 @@
                 updatePlayerProfile();
             }
         });
+
+
+    function toggleDropdown(dropdownId) {
+        document.getElementById(dropdownId).classList.toggle("show");
+}
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            const dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                const openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    };
+
     </script>
 </body>
 </html>

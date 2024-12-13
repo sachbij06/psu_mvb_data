@@ -8,10 +8,10 @@ body {
 
 header {
     font-family: 'Roboto Slab', serif;
-    font-size: 18px;
+    font-size: 14px;
     background-color: #0c1c44;
     color: white;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -57,7 +57,6 @@ header {
 
 .tabs button:hover {
     background-color: #1e407c;
-    transform: scale(1.05);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -237,7 +236,6 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
-    position: fixed;
     bottom: 0;
     width: 100%;
 }
@@ -328,9 +326,9 @@ nav{
 }
 
 nav button {
-    background-color: #0c1c44;
-    color: #ffffff;
-    border: 1px solid #ffffff;
+    background-color: transparent;
+    color: inherit;
+    border: 0.5px solid #ffffff;
     padding: 14px 24px;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 16px;
@@ -343,7 +341,7 @@ nav button {
 
 nav button:hover {
     background-color: #1e407c;
-    transform: scale(1.05);
+    color: white;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -375,8 +373,7 @@ nav button:hover {
 }
 
 #category-buttons button:hover {
-    background-color: #e6eaf2;
-    transform: scale(1.05);
+    background-color: #0c1c44;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
@@ -386,4 +383,54 @@ nav button:hover {
     border: none;
     transform: scale(1.05);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* General Dropdown Styles */
+.dropbtn {
+    background-color: #0c1c44;
+    color: #0c1c44;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #1e407c;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 8px;
+    padding: 5px 0;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #0c1c44;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+.show {
+    display: block;
 }
