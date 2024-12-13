@@ -1,142 +1,182 @@
 [
-    {
-      "name": "Jake Tidik",
-      "jersey_number": 1,
-      "position": "Setter",
-      "class": "Freshman",
-      "headshot": "static/headshots/tidik.png"
-    },
-    {
-      "name": "Bennett Wilson",
-      "jersey_number": 2,
-      "position": "Outside Hitter",
-      "class": "Freshman",
-      "headshot": "static/headshots/wilson.png"
-    },
-    {
-      "name": "Carter Dittman",
-      "jersey_number": 3,
-      "position": "Outside Hitter",
-      "class": "Sophomore",
-      "headshot": "static/headshots/dittman.png"
-    },
-    {
-      "name": "Matt Cosgrove",
-      "jersey_number": 5,
-      "position": "Outside Hitter",
-      "class": "Redshirt Junior",
-      "headshot": "static/headshots/cosgrove.png"
-    },
-    {
-      "name": "Ryan Merk",
-      "jersey_number": 7,
-      "position": "Libero",
-      "class": "Redshirt Junior",
-      "headshot": "static/headshots/merk.png"
-    },
-    {
-      "name": "Jaidyn Bethel",
-      "jersey_number": 8,
-      "position": "Outside Hitter",
-      "class": "Freshman",
-      "headshot": "static/headshots/bethel.png"
-    },
-    {
-      "name": "Gaige Gabriel",
-      "jersey_number": 9,
-      "position": "Middle Blocker",
-      "class": "Freshman",
-      "headshot": "static/headshots/gabriel.png"
-    },
-    {
-      "name": "Michael Schwob",
-      "jersey_number": 10,
-      "position": "Setter",
-      "class": "Sophomore",
-      "headshot": "static/headshots/schwob.png"
-    },
-    {
-      "name": "Josh Rosenblum",
-      "jersey_number": 11,
-      "position": "Setter",
-      "class": "Redshirt Junior",
-      "headshot": "static/headshots/rosenblum.png"
-    },
-    {
-      "name": "Sean Harvey",
-      "jersey_number": 12,
-      "position": "Outside Hitter/OPP",
-      "class": "Redshirt Freshman",
-      "headshot": "static/headshots/harvey.png"
-    },
-    {
-      "name": "Owen Rose ⓒ",
-      "jersey_number": 13,
-      "position": "Middle Blocker",
-      "class": "Redshirt Junior",
-      "headshot": "static/headshots/rose.png"
-    },
-    {
-      "name": "Zach Stowe",
-      "jersey_number": 14,
-      "position": "Middle Blocker",
-      "class": "Sophomore",
-      "headshot": "static/headshots/stowe.png"
-    },
-    {
-      "name": "Matthew Luoma",
-      "jersey_number": 15,
-      "position": "Outside Hitter/Opposite",
-      "class": "Redshirt Sophomore",
-      "headshot": "static/headshots/luoma.png"
-    },
-    {
-      "name": "Blainey Jones",
-      "jersey_number": 16,
-      "position": "Outside Hitter",
-      "class": "Redshirt Sophomore",
-      "headshot": "static/headshots/jones.png"
-    },
-    {
-      "name": "Will Kuhns ⓒ",
-      "jersey_number": 17,
-      "position": "Outside Hitter",
-      "class": "Redshirt Senior",
-      "headshot": "static/headshots/kuhns.png"
-    },
-    {
-      "name": "Ryan Pecora",
-      "jersey_number": 18,
-      "position": "Middle Blocker",
-      "class": "Freshman",
-      "headshot": "static/headshots/pecora.png"
-    },
-    {
-      "name": "Christian Couch",
-      "jersey_number": 19,
-      "position": "Opposite",
-      "class": "Freshman",
-      "headshot": "static/headshots/couch.png"
-    },
-    {
-      "name": "Miller Trubey",
-      "jersey_number": 20,
-      "position": "Opposite",
-      "class": "Redshirt Sophomore",
-      "headshot": "static/headshots/trubey.png"
-    },
-    {
-      "name": "Nate Egerstrom",
-      "jersey_number": 21,
-      "position": "Middle Blocker",
-      "class": "Redshirt Freshman",
-      "headshot": "static/headshots/egerstrom.png"
-    },
-    {
-      "name": "Cole Ignaszak",
-      "jersey_number": 22,
-      "position": "Opposite",
-      "class": "Redshirt Junior",
-      "headshot": "static/headshots/ignaszak.png"
-    }
-  ]
+  {
+    "name": "Jake Tidik",
+    "jersey_number": 1,
+    "position": "Setter",
+    "class": "Freshman",
+    "headshot": "static/headshots/tidik.png",
+    "height": "6′4″",
+    "weight": 164.0
+  },
+  {
+    "name": "Bennett Wilson",
+    "jersey_number": 2,
+    "position": "Outside Hitter",
+    "class": "Freshman",
+    "headshot": "static/headshots/wilson.png",
+    "height": "6′4″",
+    "weight": 169.8
+  },
+  {
+    "name": "Carter Dittman",
+    "jersey_number": 3,
+    "position": "Outside Hitter",
+    "class": "Sophomore",
+    "headshot": "static/headshots/dittman.png",
+    "height": "6′4″",
+    "weight": 200.8
+  },
+  {
+    "name": "Matt Cosgrove",
+    "jersey_number": 5,
+    "position": "Outside Hitter",
+    "class": "Redshirt Junior",
+    "headshot": "static/headshots/cosgrove.png",
+    "height": "6′6″",
+    "weight": 196.9
+  },
+  {
+    "name": "Ryan Merk",
+    "jersey_number": 7,
+    "position": "Libero",
+    "class": "Redshirt Junior",
+    "headshot": "static/headshots/merk.png",
+    "height": "6′0″",
+    "weight": 172.4
+  },
+  {
+    "name": "Jaidyn Bethel",
+    "jersey_number": 8,
+    "position": "Outside Hitter",
+    "class": "Freshman",
+    "headshot": "static/headshots/bethel.png",
+    "height": "6′4″",
+    "weight": 208.8
+  },
+  {
+    "name": "Gaige Gabriel",
+    "jersey_number": 9,
+    "position": "Middle Blocker",
+    "class": "Freshman",
+    "headshot": "static/headshots/gabriel.png",
+    "height": "6′8″",
+    "weight": 191.1
+  },
+  {
+    "name": "Michael Schwob",
+    "jersey_number": 10,
+    "position": "Setter",
+    "class": "Sophomore",
+    "headshot": "static/headshots/schwob.png",
+    "height": "6′6″",
+    "weight": 166.9
+  },
+  {
+    "name": "Josh Rosenblum",
+    "jersey_number": 11,
+    "position": "Setter",
+    "class": "Redshirt Junior",
+    "headshot": "static/headshots/rosenblum.png",
+    "height": "6′6″",
+    "weight": 188.3
+  },
+  {
+    "name": "Sean Harvey",
+    "jersey_number": 12,
+    "position": "Outside Hitter/OPP",
+    "class": "Redshirt Freshman",
+    "headshot": "static/headshots/harvey.png",
+    "height": "6′7″",
+    "weight": 171.3
+  },
+  {
+    "name": "Owen Rose ⓒ",
+    "jersey_number": 13,
+    "position": "Middle Blocker",
+    "class": "Redshirt Junior",
+    "headshot": "static/headshots/rose.png",
+    "height": "6′7″",
+    "weight": 205.9
+  },
+  {
+    "name": "Zach Stowe",
+    "jersey_number": 14,
+    "position": "Middle Blocker",
+    "class": "Sophomore",
+    "headshot": "static/headshots/stowe.png",
+    "height": "6′7″",
+    "weight": 219.4
+  },
+  {
+    "name": "Matthew Luoma",
+    "jersey_number": 15,
+    "position": "Outside Hitter/Opposite",
+    "class": "Redshirt Sophomore",
+    "headshot": "static/headshots/luoma.png",
+    "height": "6′7″",
+    "weight": 195.3
+  },
+  {
+    "name": "Blainey Jones",
+    "jersey_number": 16,
+    "position": "Outside Hitter",
+    "class": "Redshirt Sophomore",
+    "headshot": "static/headshots/jones.png",
+    "height": "6′3″",
+    "weight": 157.2
+  },
+  {
+    "name": "Will Kuhns ⓒ",
+    "jersey_number": 17,
+    "position": "Outside Hitter",
+    "class": "Redshirt Senior",
+    "headshot": "static/headshots/kuhns.png",
+    "height": "6′3″",
+    "weight": 176.6
+  },
+  {
+    "name": "Ryan Pecora",
+    "jersey_number": 18,
+    "position": "Middle Blocker",
+    "class": "Freshman",
+    "headshot": "static/headshots/pecora.png",
+    "height": "6′6″",
+    "weight": 197.5
+  },
+  {
+    "name": "Christian Couch",
+    "jersey_number": 19,
+    "position": "Opposite",
+    "class": "Freshman",
+    "headshot": "static/headshots/couch.png",
+    "height": "6′7″",
+    "weight": 182.3
+  },
+  {
+    "name": "Miller Trubey",
+    "jersey_number": 20,
+    "position": "Opposite",
+    "class": "Redshirt Sophomore",
+    "headshot": "static/headshots/trubey.png",
+    "height": "6′11″",
+    "weight": 206.4
+  },
+  {
+    "name": "Nate Egerstrom",
+    "jersey_number": 21,
+    "position": "Middle Blocker",
+    "class": "Redshirt Freshman",
+    "headshot": "static/headshots/egerstrom.png",
+    "height": "6′8″",
+    "weight": 194.9
+  },
+  {
+    "name": "Cole Ignaszak",
+    "jersey_number": 22,
+    "position": "Opposite",
+    "class": "Redshirt Junior",
+    "headshot": "static/headshots/ignaszak.png",
+    "height": "6′7″",
+    "weight": 202.6
+  }
+]

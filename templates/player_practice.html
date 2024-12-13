@@ -10,17 +10,19 @@
     <!-- HEADER -->
     <header>
         <div class="logo-container">
-            <img src="static/psu_logo.png" alt="PSU Logo" class="logo">
+            <a href="/home">
+                <img src="static/psu_logo.png" alt="PSU Logo" class="logo">
+            </a>
             <h1>Penn State Men's Volleyball</h1>
             <h1>—</h1>
             <h1>Practice Stats</h1>
         </div>
         <nav>
             <ul class="tabs">
-                <li><button onclick="showStats('setting')">Set</button></li>
-                <li><button onclick="showStats('attacking')">Attack</button></li>
-                <li><button onclick="showStats('serving')">Serve</button></li>
-                <li><button onclick="showStats('passing')">Pass</button></li>
+                <li><button onclick="location.href='/team_strength'">Team Strength Data</button></li>
+                <li><button onclick="location.href='/team_practice'">Team Play Data</button></li>
+                <li><button onclick="location.href='/player_practice'">Player Play Data</button></li>
+                <li><button onclick="location.href='/player_strength'">Player Strength Data</button></li>
             </ul>
         </nav>
     </header>
@@ -41,7 +43,6 @@
             </div>
 
             <div class="practice-select">
-
                 <div class="practice-filter">
                     <h3>Filter Practices</h3>
                     <button onclick="filterPractices('specific')">Specific Practices</button>
@@ -61,8 +62,16 @@
 
         <!-- MAIN DASHBOARD AREA -->
         <main class="dashboard">
+            <!-- Category Buttons -->
+            <div id="category-buttons">
+                <button onclick="showStats('setting')">Set</button>
+                <button onclick="showStats('attacking')">Attack</button>
+                <button onclick="showStats('serving')">Serve</button>
+                <button onclick="showStats('passing')">Pass</button>
+            </div>
+
+            <!-- Stats Content -->
             <div id="stats-container">
-                <!-- Dynamic stats data for Setting, Attacking, Serving, Passing -->
                 <p>Select a category above to view stats.</p>
             </div>
         </main>
