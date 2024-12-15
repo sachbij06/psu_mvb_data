@@ -3,39 +3,72 @@
 <head>
     <title>Penn State Men's Volleyball Strength and Conditioning Data</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .dropdown-menu li {
+            padding: 8px 16px;
+        }
+    
+        .dropdown-menu li:hover {
+            background-color: #ddd;
+            cursor: pointer;
+        }
+    
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+    
+        .dropdown-container:hover .dropdown-menu {
+            display: block;
+        }
+    
+        .dropdown-menu li a {
+            text-decoration: none;
+            color: black;
+        }
+    </style>
 </head>
 <body>
     <!-- HEADER -->
     <header>
-    <div class="logo-container">
-        <a href="/home">
-            <img src="static/psu_logo.png" alt="PSU Logo" class="logo">
-        </a>
-        <h1>Penn State Men's Volleyball</h1>
-    </div>
-    <nav>
-        <ul class="tabs">
-            <li class="dropdown">
-                <button onclick="toggleDropdown('teamDropdown')" class="dropbtn">Team</button>
-            </li>
-            <div id="teamDropdown" class="dropdown-content">
-                <a href="/team_strength">Strength & Conditioning</a>
-                <a href="/team_practice">On-Court Performance</a>
-            </div>
-            <li class="dropdown">
-                <button onclick="toggleDropdown('individualDropdown')" class="dropbtn">Individual</button>
-                
-            </li>
-            <div id="individualDropdown" class="dropdown-content">
-                <a href="/player_strength">Strength & Conditioning</a>
-                <a href="/player_practice">On-Court Performance</a>
-            </div>
-        </ul>
-    </nav>
-</header>
-
-
-
+        <div class="logo-container">
+            <a href="/home">
+                <img src="static/psu_logo.png" alt="PSU Logo" class="logo">
+            </a>
+            <h1>Penn State Men's Volleyball</h1>
+            <h1>—</h1>
+            <h1>Strength and Conditioning Data</h1>
+        </div>
+        <nav>
+            <ul class="tabs">
+                <li class="dropdown-container">
+                    <button>Team</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team_strength">Strength and Conditioning</a></li>
+                        <li><a href="/team_oncourt">On-Court Performance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-container">
+                    <button>Individual</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/player_strength">Strength and Conditioning</a></li>
+                        <li><a href="/player_oncourt">On-Court Performance</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- MAIN CONTENT -->
     <div class="main-container">
