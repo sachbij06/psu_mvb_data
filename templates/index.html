@@ -10,15 +10,34 @@
 <body>
     <header>
         <div class="logo-container">
-            <img src="static/penn state pictures/psu_logo.png" alt="PSU Logo" class="logo">
-            <h1>Penn State Men's Volleyball Data</h1>
+           <a href="/home">
+           <img src="static/penn state pictures/psu_logo.png" alt="PSU Logo" class="logo">
+           </a>
+           <h1>Penn State Men's Volleyball Data</h1>
         </div>
         <nav>
-            <button onclick="location.href='/team_oncourt'">Team Profile</button>
-            <button onclick="location.href='/player_oncourt'">Player Profile</button>
+           <ul class="tabs">
+              <li class="dropdown-container">
+                 <button>Team</button>
+                 <ul class="dropdown-menu">
+                    <li> <a href="/team_strength">Strength and Conditioning</a> </li>
+                    <li> <a href="/team_oncourt">On-Court Performance</a> </li>
+                 </ul>
+              </li>
+              <li class="dropdown-container">
+                 <button>Individual</button>
+                 <ul class="dropdown-menu">
+                    <li>
+                       <a href="/player_strength">Strength and Conditioning</a>
+                    </li>
+                    <li>
+                       <a href="/player_oncourt">On-Court Performance</a>
+                    </li>
+                 </ul>
+              </li>
+           </ul>
         </nav>
-        
-    </header>
+     </header>
     <main>
         <div class="highlight">
             <img src="static/homepage/EIVA_win.png" alt="EIVA Win">

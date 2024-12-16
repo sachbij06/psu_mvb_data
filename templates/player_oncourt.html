@@ -3,7 +3,30 @@
 <head>
 
 <title>Penn State Men's Volleyball Court Data</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<style>
+    #category-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #f8f9fa;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+        #category-buttons button {
+        background-color: #ffffff;
+        color: #0c1c44;
+        border: 1px solid #0c1c44;
+        padding: 12px 20px;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+    }
+</style>
 </head>
 <body>
     <!-- HEADER -->
@@ -91,6 +114,18 @@
     </footer>
 
     <script>
+        const buttons = document.querySelectorAll('#category-buttons button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to the clicked button
+                button.classList.add('active');
+            });
+        });
+
         // Load player data from the players.json file
         fetch('static/player_data/players.json')
         .then(response => response.json())
@@ -113,42 +148,19 @@
 
         function showStats(category) {
             const statsContainer = document.getElementById('stats-container');
-            const tabs = document.querySelectorAll('.tabs button');
 
-            // Remove active state from all tabs
-            tabs.forEach(tab => tab.classList.remove('active'));
+            let statsContent = `<p>Select a category above to view stats.</p>`; // Default content
 
-            // Add active state to the clicked tab
-            tabs.forEach(tab => {
-                if (tab.getAttribute('onclick').includes(category)) {
-                    tab.classList.add('active');
-                }
-            });
-
-
-            if(category == "setting") {
-                statsContent = `<p>Displaying your setting stats...</p>`;
-
-
+            if (category === "setting") {
+                statsContent = `<p>Displaying setting stats...</p>`;
+            } else if (category === "attacking") {
+                statsContent = `<p>Displaying attacking stats...</p>`;
+            } else if (category === "serving") {
+                statsContent = `<p>Displaying serving stats...</p>`;
+            } else if (category === "passing") {
+                statsContent = `<p>Displaying passing stats...</p>`;
             }
 
-            if(category == "attacking") {
-                statsContent = `<p>Displaying your attacking stats...</p>`;
-
-
-            }
-
-            if(category == "serving") {
-                statsContent = `<p>Displaying your serving stats...</p>`;
-
-
-            }
-            
-            if(category == "passing") {
-                statsContent = `<p>Displaying your passing stats...</p>`;
-
-
-            }
             statsContainer.innerHTML = statsContent;
         }
 

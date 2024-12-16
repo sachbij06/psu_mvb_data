@@ -5,19 +5,26 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         .sidebar {
-            width: 250px;
-            padding: 20px;
-            background-color: #f4f4f4;
-            text-align: center;
+            text-align: center; /* Ensures text and inline elements are centered */
+        }
+
+        /* Team Profile Styling */
+        .team-profile {
+            margin: auto; /* Centers the block element itself (backup) */
         }
 
         .team-profile img {
-            max-width: 100%;
+            max-width: 80%; /* Keeps the image responsive */
             border-radius: 5px;
             margin-bottom: 10px;
         }
 
-        .team-profile h2, .team-profile p {
+        .team-profile h2 {
+            font-size: 40px;
+            margin: 10px 0;
+        }
+
+        .team-profile p {
             margin: 10px 0;
         }
 
@@ -25,6 +32,29 @@
             border: 1px solid #ccc;
             margin: 15px 0;
         }
+
+        #category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #category-buttons button {
+            background-color: #ffffff;
+            color: #0c1c44;
+            border: 1px solid #0c1c44;
+            padding: 12px 20px;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 15px;
+            font-weight: 500;
+        }
+        
     </style>
 </head>
 <body>
@@ -67,6 +97,27 @@
                 <h2>0-0</h2>
                 <hr>
                 <p>1st in EIVA | Coach Mark Pavlik</p>
+                <hr>
+                
+                <!-- Toggle Buttons -->
+                <div id="toggle-buttons">
+                    <button onclick="showList('games')" id="game-button">Games</button>
+                    <button onclick="showList('practice')" id="practice-button">Practice</button>
+                </div>
+        
+                <!-- Game List -->
+                <ul id="game-list" class="list">
+                    <li>Jan 5: vs Ohio State - W 3-1</li>
+                    <li>Jan 10: @ Michigan State - L 1-3</li>
+                    <li>Jan 15: vs Rutgers - W 3-0</li>
+                </ul>
+        
+                <!-- Practice List -->
+                <ul id="practice-list" class="list" style="display: none;">
+                    <li>Jan 6: Serving Drills</li>
+                    <li>Jan 12: Team Scrimmage</li>
+                    <li>Jan 14: Blocking and Defense</li>
+                </ul>
             </div>
         </aside>
 
@@ -92,6 +143,38 @@
     </footer>
 
     <script>
+        const buttons = document.querySelectorAll('#category-buttons button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to the clicked button
+                button.classList.add('active');
+            });
+        });
+
+        function showList(listType) {
+            const gameList = document.getElementById("game-list");
+            const practiceList = document.getElementById("practice-list");
+
+            const gameButton = document.getElementById("game-button");
+            const practiceButton = document.getElementById("practice-button");
+
+            if (listType === "games") {
+                gameList.style.display = "block";
+                practiceList.style.display = "none";
+                gameButton.style.backgroundColor = "#003366";
+                practiceButton.style.backgroundColor = "#005fa3";
+            } else {
+                gameList.style.display = "none";
+                practiceList.style.display = "block";
+                practiceButton.style.backgroundColor = "#003366";
+                gameButton.style.backgroundColor = "#005fa3";
+            }
+}
+        
         function showStats(category) {
             const statsContainer = document.getElementById('stats-container');
 
