@@ -66,12 +66,6 @@ header {
     height: 100vh;
 }
 
-.sidebar {
-    width: 25%;
-    background-color: #f8f9fa;
-    padding: 20px;
-    border-right: 1px solid #e0e0e0;
-}
 
 .player-profile {
     text-align: center;
@@ -83,20 +77,22 @@ header {
     font-weight: 700;
     font-size: 20px;
     margin: 10px 0;
+    color: #ffffff;
 }
 
 .player-profile p {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-    color: #555555;
+    color: #cfd8e3;
 }
 
 .headshot {
     border-radius: 15%;
     height: 225px;
     width: 165px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     margin-bottom: 10px;
+    border: 0.5px solid #1e407c;
 }
 
 .player-select,
@@ -112,8 +108,9 @@ header {
     font-family: 'Roboto Slab', serif;
     font-size: 20px;
     font-weight: 600;
-    color: #0c1c44;
+    color: #cfd8e3;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .player-select select,
@@ -121,28 +118,35 @@ header {
     width: 90%;
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #e0e0e0;
-    background-color: #ffffff;
+    border: none;
+    background-color: #0f2a4d;
+    color: #ffffff;
     font-size: 16px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     text-align: center;
     cursor: pointer;
+}
+
+.player-select select:focus,
+.practice-select .dropdown-container:focus {
+    outline: none;
+    border: 2px solid #6B67C8;
 }
 
 .selected-items {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #1e407c;
     border-radius: 8px;
     padding: 10px;
     min-height: 50px;
     width: 90%;
-    background-color: #ffffff;
+    background-color: #0f2a4d;
 }
 
 .selected-items span {
-    background-color: #0c1c44;
+    background-color: #1e407c;
     color: white;
     padding: 5px 10px;
     border-radius: 8px;
@@ -158,11 +162,11 @@ header {
 
 .dropdown {
     margin-top: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid #1e407c;
     border-radius: 8px;
     max-height: 150px;
     overflow-y: auto;
-    background-color: #ffffff;
+    background-color: #0f2a4d;
 }
 
 .dropdown button {
@@ -172,10 +176,12 @@ header {
     text-align: left;
     cursor: pointer;
     background-color: transparent;
+    color: #ffffff;
+    transition: background-color 0.2s ease;
 }
 
 .dropdown button:hover {
-    background-color: #f0f0f0;
+    background-color: #1e407c;
 }
 
 .dropdown button.hidden {
@@ -184,11 +190,11 @@ header {
 
 .practice-filter {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #0f2a4d;
     padding: 15px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid #1e407c;
     border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     margin: 20px 0;
 }
 
@@ -196,12 +202,12 @@ header {
     font-family: 'Roboto Slab', serif;
     font-size: 20px;
     font-weight: 600;
-    color: #0c1c44;
+    color: #cfd8e3;
     margin-bottom: 10px;
 }
 
 .practice-filter button {
-    background-color: #0c1c44;
+    background-color: #1e407c;
     color: #ffffff;
     border: none;
     padding: 8px 16px;
@@ -215,9 +221,10 @@ header {
 }
 
 .practice-filter button:hover {
-    background-color: #1e407c;
+    background-color: #6B67C8;
     transform: scale(1.075);
 }
+
 
 .dashboard {
     width: 75%;
@@ -357,7 +364,7 @@ nav button:hover {
 #category-buttons button {
     background-color: #ffffff;
     border: 1px solid #0c1c44;
-    width: 25%;
+    width: 23.2%;
     padding: 0px 0px;
     border-radius: 5px;
     cursor: pointer;
@@ -374,7 +381,7 @@ nav button:hover {
 #category-buttons button:hover {
     background-color: #0c1c44;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-    transform: scale(1.05);
+    transform: scale(1.055);
 }
 
 #category-buttons button.active {
@@ -440,6 +447,7 @@ nav button:hover {
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 4px;
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -466,4 +474,73 @@ nav button:hover {
 .dropdown-menu li a {
     text-decoration: none;
     color: black;
+}
+
+.sidebar {
+    background-color: #09172e;
+    color: white;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 25%;
+ }
+
+ .sidebar-header {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+ }
+
+ .sidebar-section {
+    margin-bottom: 10px;
+    cursor: pointer;
+ }
+
+ .sidebar-title {
+    font-size: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #142850;
+    border-radius: 5px;
+ }
+
+ .sidebar-title:hover {
+    background-color: #1e3a6e;
+ }
+
+ .arrow {
+    font-size: 0.8em;
+ }
+
+ .sidebar-content {
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #0f2a4d;
+    border-left: 3px solid #6B67C8;
+    border-radius: 5px;
+    display: none;
+ }
+
+ .sidebar-content p {
+    margin: 5px 0;
+    font-size: 0.9em;
+ }
+
+ .team-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+.image-caption {
+    text-align: center;
+    font-size: 14px;
+    color: #cfd8e3;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5px;
+    font-style: italic;
+    margin-bottom: 10px;
 }
