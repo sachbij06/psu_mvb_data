@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penn State Men's Volleyball — Court Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .sidebar {
+            width: 250px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .team-profile img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .team-profile h2, .team-profile p {
+            margin: 10px 0;
+        }
+
+        .team-profile hr {
+            border: 1px solid #ccc;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <a href="/home">
+                <img src="static/penn state pictures/psu_logo.png" alt="PSU Logo" class="logo">
+            </a>
+            <h1>Penn State Men's Volleyball</h1>
+            <h1>—</h1>
+            <h1>On Court Performance</h1>
+        </div>
+        <nav>
+            <ul class="tabs">
+                <li class="dropdown-container">
+                    <button>Team</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team_strength">Strength and Conditioning</a></li>
+                        <li><a href="/team_oncourt">On-Court Performance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-container">
+                    <button>Individual</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/player_strength">Strength and Conditioning</a></li>
+                        <li><a href="/player_oncourt">On-Court Performance</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-container">
+        <!-- LEFT SIDEBAR -->
+        <aside class="sidebar">
+            <div class="team-profile">
+                <img src="static/penn state pictures/psu_mvb_x_logo.png" alt="Penn State Team Logo">
+                <h2>0-0</h2>
+                <hr>
+                <p>1st in EIVA | Coach Mark Pavlik</p>
+            </div>
+        </aside>
+
+        <!-- MAIN DASHBOARD AREA -->
+        <main class="dashboard">
+            <!-- Category Buttons -->
+            <div id="category-buttons">
+                <button onclick="showStats('setting')">Set</button>
+                <button onclick="showStats('attacking')">Attack</button>
+                <button onclick="showStats('serving')">Serve</button>
+                <button onclick="showStats('passing')">Pass</button>
+            </div>
+
+            <!-- Stats Content -->
+            <div id="stats-container">
+                <p>Select a category above to view stats.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2024 Penn State Men's Volleyball</p>
+    </footer>
+
+    <script>
+        function showStats(category) {
+            const statsContainer = document.getElementById('stats-container');
+
+            let statsContent = `<p>Select a category above to view stats.</p>`; // Default content
+
+            if (category === "setting") {
+                statsContent = `<p>Displaying setting stats...</p>`;
+            } else if (category === "attacking") {
+                statsContent = `<p>Displaying attacking stats...</p>`;
+            } else if (category === "serving") {
+                statsContent = `<p>Displaying serving stats...</p>`;
+            } else if (category === "passing") {
+                statsContent = `<p>Displaying passing stats...</p>`;
+            }
+
+            statsContainer.innerHTML = statsContent;
+        }
+    </script>
+</body>
+</html>

@@ -370,6 +370,7 @@ nav button:hover {
 }
 
 #category-buttons button:hover {
+    color: #ffffff;
     background-color: #0c1c44;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -430,4 +431,38 @@ nav button:hover {
 
 .show {
     display: block;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li {
+    padding: 8px 16px;
+}
+
+.dropdown-menu li:hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-container:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: black;
 }

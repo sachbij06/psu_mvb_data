@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Penn State Men's Volleyball — Strength & Conditioning</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        /* Blurred Image Layout */
+        .container {
+            display: flex;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .side {
+            flex: 0 0 17.5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .side img {
+            position: absolute;
+            top: 50%;
+            height: 100%;
+            width: auto;
+            object-fit: cover;
+            transform: translateY(-50%) scale(1.3);
+            filter: blur(8px);
+        }
+
+        /* Left image specific crop */
+        .left img {
+            left: 0;
+            transform: translateY(-50%) scale(1.3) translateX(-15%);
+        }
+
+        /* Right image specific crop */
+        .right img {
+            right: 0;
+            transform: translateY(-50%) scale(1.3) translateX(15%);
+        }
+
+        .center {
+            flex: 0 0 65%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .center img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: none;
+        }
+
+        /* Bottom Section Styling */
+        .bottom-row {
+            display: flex;
+            width: 100%;
+            border-top: 2px solid #ddd;
+        }
+
+        .quarter {
+            flex: 1;
+            text-align: center;
+            position: relative;
+            border-right: 2px solid #ddd;
+            overflow: hidden;
+        }
+
+        .quarter:last-child {
+            border-right: none;
+        }
+
+        .quarter img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .quarter img:hover {
+            transform: scale(1.05);
+        }
+
+        .quarter p {
+            margin: 10px 0;
+            font-size: 1rem;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="logo-container">
+            <a href="/home">
+                <img src="static/penn state pictures/psu_logo.png" alt="PSU Logo" class="logo">
+            </a>
+            <h1>Penn State Men's Volleyball</h1>
+            <h1>—</h1>
+            <h1>Strength and Conditioning</h1>
+        </div>
+        <nav>
+            <ul class="tabs">
+                <li class="dropdown-container">
+                    <button>Team</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/team_strength">Strength and Conditioning</a></li>
+                        <li><a href="/team_oncourt">On-Court Performance</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown-container">
+                    <button>Individual</button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/player_strength">Strength and Conditioning</a></li>
+                        <li><a href="/player_oncourt">On-Court Performance</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-container">
+        <!-- TOP HALF: Blurred Weight Room Image -->
+        <div class="container">
+            <!-- Left Blurred Section -->
+            <div class="side left">
+                <img src="static/penn state pictures/weightroom_full.png" alt="Blurred Image Left">
+            </div>
+
+            <!-- Center Clear Section -->
+            <div class="center">
+                <img src="static/penn state pictures/weightroom_full.png" alt="Sharp Image Center">
+            </div>
+
+            <!-- Right Blurred Section -->
+            <div class="side right">
+                <img src="static/penn state pictures/weightroom_full.png" alt="Blurred Image Right">
+            </div>
+        </div>
+
+        <!-- BOTTOM HALF: Four Images in a Row -->
+        <div class="bottom-row">
+            <div class="quarter">
+                <a href="/force_plate"><img src="static/S+C page/forceplate_data.png" alt="Force Plate"></a>
+            </div>
+            <div class="quarter">
+                <a href="/vert"><img src="static/S+C page/vert_data.png" alt="Vert"></a>
+            </div>
+            <div class="quarter">
+                <a href="/player_pr"><img src="static/S+C page/pr_data.png" alt="Player PR"></a>
+            </div>
+            <div class="quarter">
+                <a href="/pulse_swing"><img src="static/S+C page/swing_data.png" alt="Pulse Swing"></a>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Penn State Men's Volleyball</p>
+    </footer>
+</body>
+</html>
