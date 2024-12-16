@@ -48,7 +48,7 @@
             </a>
             <h1>Penn State Men's Volleyball</h1>
             <h1>—</h1>
-            <h1>Strength and Conditioning Data</h1>
+            <h1>Individual Strength and Conditioning Data</h1>
         </div>
         <nav>
             <ul class="tabs">
@@ -85,17 +85,14 @@
 
         <!-- MAIN DASHBOARD AREA -->
         <main class="dashboard">
-            <!-- Category Buttons -->
             <div id="category-buttons">
-                <button onclick="showStats('Force Decks')">Force Decks</button>
-                <button onclick="showStats('Arm Swing (Pulse)')">Arm Swing (Pulse)</button>
-                <button onclick="showStats('Vert')">Vert</button>
-                <button onclick="showStats('PRs')">PRs</button>
+                <button onclick="showStats('Force Decks')"> <img src="static/S+C page/forceplate_data.png" alt="Force Plate"></button>
+                <button onclick="showStats('Arm Swing (Pulse)')"> <img src="static/S+C page/swing_data.png" alt="Arm Swing (Pulse)"></button>
+                <button onclick="showStats('Vert')"> <img src="static/S+C page/vert_data.png" alt="Vert"></button>
+                <button onclick="showStats('PRs')"> <img src="static/S+C page/pr_data.png" alt="Vert"></button>
             </div>
-
-            <!-- Stats Content -->
             <div id="stats-container">
-                <p>Select a category above to view stats.</p>
+               <p>Select a category above to view stats.</p>
             </div>
         </main>
     </div>
@@ -105,8 +102,20 @@
     </footer>
 
     <script>
+
+        const buttons = document.querySelectorAll('#category-buttons button');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                buttons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to the clicked button
+                button.classList.add('active');
+            });
+        });
         // Fetch players and populate the player dropdown
-        fetch('static/players.json')
+        fetch('static/player_data/players.json')
             .then(response => response.json())
             .then(players => {
                 const playerSelector = document.getElementById('player-selector');
@@ -127,7 +136,7 @@
         function updatePlayerProfile() {
             const selectedPlayerName = document.getElementById('player-selector').value;
 
-            fetch('static/players.json')
+            fetch('static/player_data/players.json')
                 .then(response => response.json())
                 .then(players => {
                     const player = players.find(p => p.name === selectedPlayerName);

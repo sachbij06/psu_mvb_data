@@ -14,7 +14,7 @@
             </a>
             <h1>Penn State Men's Volleyball</h1>
             <h1>—</h1>
-            <h1>On Court Performance</h1>
+            <h1>Individual On Court Performance</h1>
         </div>
         <nav>
             <ul class="tabs">
@@ -92,7 +92,7 @@
 
     <script>
         // Load player data from the players.json file
-        fetch('static/players.json')
+        fetch('static/player_data/players.json')
         .then(response => response.json())
         .then(players => {
             const playerSelector = document.getElementById('player-selector');
@@ -156,7 +156,7 @@
         function updatePlayerProfile() {
             const selectedPlayerName = document.getElementById('player-selector').value;
             
-            fetch('static/players.json')
+            fetch('static/player_data/players.json')
                 .then(response => response.json())
                 .then(players => {
                     const player = players.find(p => p.name === selectedPlayerName);

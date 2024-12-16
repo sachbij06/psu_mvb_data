@@ -4,7 +4,7 @@
     "jersey_number": 1,
     "position": "Setter",
     "class": "Freshman",
-    "headshot": "static/headshots/tidik.png",
+    "headshot": "static/player_data/headshots/tidik.png",
     "height": "6′4″",
     "weight": 164.0
   },
@@ -13,7 +13,7 @@
     "jersey_number": 2,
     "position": "Outside Hitter",
     "class": "Freshman",
-    "headshot": "static/headshots/wilson.png",
+    "headshot": "static/player_data/headshots/wilson.png",
     "height": "6′4″",
     "weight": 169.8
   },
@@ -22,7 +22,7 @@
     "jersey_number": 3,
     "position": "Outside Hitter",
     "class": "Sophomore",
-    "headshot": "static/headshots/dittman.png",
+    "headshot": "static/player_data/headshots/dittman.png",
     "height": "6′4″",
     "weight": 200.8
   },
@@ -31,7 +31,7 @@
     "jersey_number": 5,
     "position": "Outside Hitter",
     "class": "Redshirt Junior",
-    "headshot": "static/headshots/cosgrove.png",
+    "headshot": "static/player_data/headshots/cosgrove.png",
     "height": "6′6″",
     "weight": 196.9
   },
@@ -40,7 +40,7 @@
     "jersey_number": 7,
     "position": "Libero",
     "class": "Redshirt Junior",
-    "headshot": "static/headshots/merk.png",
+    "headshot": "static/player_data/headshots/merk.png",
     "height": "6′0″",
     "weight": 172.4
   },
@@ -49,7 +49,7 @@
     "jersey_number": 8,
     "position": "Outside Hitter",
     "class": "Freshman",
-    "headshot": "static/headshots/bethel.png",
+    "headshot": "static/player_data/headshots/bethel.png",
     "height": "6′4″",
     "weight": 208.8
   },
@@ -58,7 +58,7 @@
     "jersey_number": 9,
     "position": "Middle Blocker",
     "class": "Freshman",
-    "headshot": "static/headshots/gabriel.png",
+    "headshot": "static/player_data/headshots/gabriel.png",
     "height": "6′8″",
     "weight": 191.1
   },
@@ -67,7 +67,7 @@
     "jersey_number": 10,
     "position": "Setter",
     "class": "Sophomore",
-    "headshot": "static/headshots/schwob.png",
+    "headshot": "static/player_data/headshots/schwob.png",
     "height": "6′6″",
     "weight": 166.9
   },
@@ -76,7 +76,7 @@
     "jersey_number": 11,
     "position": "Setter",
     "class": "Redshirt Junior",
-    "headshot": "static/headshots/rosenblum.png",
+    "headshot": "static/player_data/headshots/rosenblum.png",
     "height": "6′6″",
     "weight": 188.3
   },
@@ -85,7 +85,7 @@
     "jersey_number": 12,
     "position": "Outside Hitter/OPP",
     "class": "Redshirt Freshman",
-    "headshot": "static/headshots/harvey.png",
+    "headshot": "static/player_data/headshots/harvey.png",
     "height": "6′7″",
     "weight": 171.3
   },
@@ -94,7 +94,7 @@
     "jersey_number": 13,
     "position": "Middle Blocker",
     "class": "Redshirt Junior",
-    "headshot": "static/headshots/rose.png",
+    "headshot": "static/player_data/headshots/rose.png",
     "height": "6′7″",
     "weight": 205.9
   },
@@ -103,7 +103,7 @@
     "jersey_number": 14,
     "position": "Middle Blocker",
     "class": "Sophomore",
-    "headshot": "static/headshots/stowe.png",
+    "headshot": "static/player_data/headshots/stowe.png",
     "height": "6′7″",
     "weight": 219.4
   },
@@ -112,7 +112,7 @@
     "jersey_number": 15,
     "position": "Outside Hitter/Opposite",
     "class": "Redshirt Sophomore",
-    "headshot": "static/headshots/luoma.png",
+    "headshot": "static/player_data/headshots/luoma.png",
     "height": "6′7″",
     "weight": 195.3
   },
@@ -121,7 +121,7 @@
     "jersey_number": 16,
     "position": "Outside Hitter",
     "class": "Redshirt Sophomore",
-    "headshot": "static/headshots/jones.png",
+    "headshot": "static/player_data/headshots/jones.png",
     "height": "6′3″",
     "weight": 157.2
   },
@@ -130,7 +130,7 @@
     "jersey_number": 17,
     "position": "Outside Hitter",
     "class": "Redshirt Senior",
-    "headshot": "static/headshots/kuhns.png",
+    "headshot": "static/player_data/headshots/kuhns.png",
     "height": "6′3″",
     "weight": 176.6
   },
@@ -139,7 +139,7 @@
     "jersey_number": 18,
     "position": "Middle Blocker",
     "class": "Freshman",
-    "headshot": "static/headshots/pecora.png",
+    "headshot": "static/player_data/headshots/pecora.png",
     "height": "6′6″",
     "weight": 197.5
   },
@@ -148,7 +148,7 @@
     "jersey_number": 19,
     "position": "Opposite",
     "class": "Freshman",
-    "headshot": "static/headshots/couch.png",
+    "headshot": "static/player_data/headshots/couch.png",
     "height": "6′7″",
     "weight": 182.3
   },
@@ -157,7 +157,7 @@
     "jersey_number": 20,
     "position": "Opposite",
     "class": "Redshirt Sophomore",
-    "headshot": "static/headshots/trubey.png",
+    "headshot": "static/player_data/headshots/trubey.png",
     "height": "6′11″",
     "weight": 206.4
   },
@@ -166,7 +166,7 @@
     "jersey_number": 21,
     "position": "Middle Blocker",
     "class": "Redshirt Freshman",
-    "headshot": "static/headshots/egerstrom.png",
+    "headshot": "static/player_data/headshots/egerstrom.png",
     "height": "6′8″",
     "weight": 194.9
   },
@@ -175,7 +175,7 @@
     "jersey_number": 22,
     "position": "Opposite",
     "class": "Redshirt Junior",
-    "headshot": "static/headshots/ignaszak.png",
+    "headshot": "static/player_data/headshots/ignaszak.png",
     "height": "6′7″",
     "weight": 202.6
   }
