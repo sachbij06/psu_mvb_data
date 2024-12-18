@@ -111,12 +111,14 @@ header {
     color: #cfd8e3;
     margin-bottom: 10px;
     text-transform: uppercase;
+    margin-top: 0px;
 }
 
 .player-select select,
 .practice-select .dropdown-container {
     width: 90%;
     padding: 10px;
+    margin-top: 15px;
     border-radius: 8px;
     border: none;
     background-color: #0f2a4d;
@@ -204,6 +206,7 @@ header {
     font-weight: 600;
     color: #cfd8e3;
     margin-bottom: 10px;
+    margin-top: 5px;
 }
 
 .practice-filter button {
@@ -221,8 +224,8 @@ header {
 }
 
 .practice-filter button:hover {
-    background-color: #6B67C8;
-    transform: scale(1.075);
+    background-color: #0a1d36;
+    transform: scale(1.05);
 }
 
 
@@ -257,8 +260,8 @@ footer p {
 }
 
 .practice-filter button.active {
-    background-color: #1e407c; 
-    transform: scale(1.075); 
+    background-color: #0a1d36; 
+    transform: scale(1.05); 
 }
 
 .dropdown button.active {
@@ -480,11 +483,13 @@ nav button:hover {
 .sidebar {
     background-color: #09172e;
     color: white;
-    padding: 20px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-right: 10px;
     font-family: Arial, sans-serif;
     height: 100vh;
     width: 25%;
-    border-radius: 0px 8px 8px 0px;
+    border-radius: 0px 3px 3px 0px;
     align-content: space-between;
     align-items: center;
 }
@@ -586,4 +591,182 @@ nav button:hover {
 
 .list li:last-child {
     border-bottom: none;
+}
+
+.section:hover {
+    background-color: #1e407c;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Shrink and Gray-Out Effect */
+.inactive {
+    opacity: 0.5;
+    transform: scale(0.975);
+}
+
+/* Content Containers */
+.content {
+    margin-top: 10px;
+    display: none;
+    padding: 15px;
+    border-radius: 8px;
+    color: #cfd8e3;
+}
+
+/* Practices Section */
+.practice-blocks {
+    display: flex;
+    justify-content: space-between;
+    position: relative; /* Allows child elements to be positioned relative to the container */
+    padding-bottom: 20px;
+}
+
+.practice-block {
+    background-color: #778da9; /* Unified background color */
+    padding: 15px;
+    text-align: center; /* Center day letters horizontally */
+    flex: 1;
+    font-size: 14px; /* Larger font size for day letters */
+    font-style: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    border-right: 1px solid #ffffff; /* Border between practice blocks */
+    position: relative; /* Allows positioning of child elements */
+}
+
+.practice-block:last-child {
+    border-right: none; /* Remove border for the last block */
+}
+
+.practice-date {
+    position: absolute; /* Position the date below the block */
+    top: 100%; /* Places the date below the practice block */
+    left: 50%; /* Center-aligns the date horizontally */
+    transform: translateX(-50%); /* Ensures the date is centered */
+    margin-top: 5px; /* Adds a bit of space between block and date */
+    font-size: 0.8rem;
+    font-family: 'Roboto', sans-serif;
+    color: #cfd8e3; /* Lightened color for the date */
+    white-space: nowrap; /* Prevents text wrapping */
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.navigation-buttons button {
+    background-color: #4a83c5; /* Muted blue for buttons */
+    color: #ffffff;
+    padding: 8px 16px;
+    border: none;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navigation-buttons button:hover {
+    background-color: #3a5b7c;
+}
+
+/* Weeks Section as Table */
+.weeks-table {
+    display: table;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.week-row {
+    display: table-row;
+}
+
+.week-box {
+    display: table-cell;
+    border: 1px solid #1e407c;
+    background-color: #778da9;
+    text-align: center;
+    padding: 20px;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+}
+
+/* Months Section */
+.months-table {
+    display: block; /* Changed to block for list-like display */
+}
+
+.month-box {
+    background-color: #778da9; /* Unified color */
+    padding: 10px 0; /* Adjusted spacing */
+    padding-left: 10px; /* Adjusted spacing */
+    text-align: left; /* Aligned text to the left */
+    font-size: 1.2rem; /* Consistent font size */
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    border-bottom: 2px solid #1e407c; /* Underline effect */
+    border-radius: 0; /* No box shape */
+}
+
+.section {
+    position: relative;
+    text-align: left;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-size: 23px;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.section:hover {
+    color: #b6c8e6;
+}
+
+/* Container Styling */
+.section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: fit-content;
+}
+
+/* Specific Section Item Adjustments */
+.section-all {
+    text-align: center;
+    font-size: 1.4rem;
+    color: #ffffff; /* White text for "All" button */
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.section-all:hover {
+    background-color: #3a5b7c; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight scaling effect */
+}
+
+.section::after {
+    content: "";
+    display: block;
+    width: 30%; /* Adjust to control the width of the bottom border */
+    height: 1px; /* Thickness of the border */
+    background-color: #5077b9; /* Border color */
+    margin-top: 5px; /* Space between text and border */
+    position: absolute;
+    bottom: 0;
+    transition: width 0.3s ease; /* Optional: Smooth transition effect */
+}
+
+.section:hover::after {
+    width: 45%; /* Expands the border slightly on hover */
 }
