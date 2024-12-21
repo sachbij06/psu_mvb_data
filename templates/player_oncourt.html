@@ -2,20 +2,19 @@
 <html>
 <head>
 
-<title>Penn State Men's Volleyball Court Data</title>
+<title>PSU MVB - Individual Play Data</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <style>
-    #category-buttons {
+        #category-buttons {
         display: flex;
         justify-content: center;
         gap: 15px;
-        margin-bottom: 20px;
         padding: 10px;
         background-color: #f8f9fa;
         border: 1px solid #e0e0e0;
         border-radius: 8px;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    }
+        }
 
         #category-buttons button {
         background-color: #ffffff;
@@ -25,23 +24,22 @@
         font-family: 'Roboto Condensed', sans-serif;
         font-size: 15px;
         font-weight: 500;
-    }
+        }
 
-    #weeks-content {
-    display: flex;
+        #weeks-content {
     justify-content: center;
     align-items: center;
     margin: 20px;
-    }
+        }
 
         .calendar-container {
-            width: 80%;
+            width: 85%;
             max-width: 600px;
             border: 1px solid #ddd;
             border-radius: 8px;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            background: #f9f9f9;
-            padding: 20px;
+            background: #778da9;
+            padding: 30px;
         }
 
         .calendar-header {
@@ -53,7 +51,7 @@
 
         .calendar-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 10px;
         }
 
@@ -61,26 +59,40 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: #fff;
+            background: #0c1c44;
             border: 1px solid #ddd;
             border-radius: 4px;
             padding: 10px;
             font-size: 14px;
-            font-weight: bold;
-            cursor: pointer;
             transition: all 0.3s ease-in-out;
         }
 
         .week-box:hover {
-            background: #e0e7ff;
+            background: #586c86;
             transform: scale(1.05);
         }
 
         .week-box.selected {
-            background: #4f46e5;
+            background: #586c86;
             color: #fff;
-            border-color: #4f46e5;
+            border-color: #586c86;
         }
+
+        .selected-practice {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .selected-week {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
+        .selected-month {
+            background-color: #4caf50;
+            color: #fff;
+        }
+
 
 </style>
 </head>
@@ -91,8 +103,6 @@
             <a href="/home">
                 <img src="static/penn state pictures/psu_logo.png" alt="PSU Logo" class="logo">
             </a>
-            <h1>Penn State Men's Volleyball</h1>
-            <h1>—</h1>
             <h1>Individual On Court Performance</h1>
         </div>
         <nav>
@@ -176,6 +186,129 @@
 
         <!-- MAIN DASHBOARD AREA -->
         <main class="dashboard">
+        
+            <!-- Selected Time Periods Section -->
+            <div id="selected-practices-container">
+                <h2 id ="selected-practices-h2">Selected Practices</h2>
+                <ul id="selected-practices-list">
+                    <!-- Dynamically populated -->
+                </ul>
+        
+                <!-- Selected-Time Calendar -->
+                <div class="selected-time-calendar-container">
+                    <!-- September -->
+                    <div class="selected-time-month-box">
+                        <div class="selected-time-month-header">September</div>
+                        <div class="selected-time-day-labels">
+                            <div class="selected-time-day-label">SU</div>
+                            <div class="selected-time-day-label">M</div>
+                            <div class="selected-time-day-label">T</div>
+                            <div class="selected-time-day-label">W</div>
+                            <div class="selected-time-day-label">TH</div>
+                            <div class="selected-time-day-label">F</div>
+                            <div class="selected-time-day-label">S</div>
+                        </div>
+                        <div class="selected-time-calendar-grid">
+                            <script>
+                                // Generate September Calendar
+                                let startDay = 0; // Sunday (0 = Sunday, 1 = Monday, ...)
+                                let daysInMonth = 30;
+                                let month = 9; // September (month as number)
+
+                                for (let i = 0; i < startDay; i++) {
+                                    document.write('<div class="selected-time-empty-day"></div>');
+                                }
+                                for (let i = 1; i <= daysInMonth; i++) {
+                                    let dayOfWeek = (startDay + i - 1) % 7;
+                                    let isWeekend = (dayOfWeek === 0 || dayOfWeek === 6); // Sunday or Saturday
+                                    const fullDate = `${month}/${i}`; // Format as "month/day"
+
+                                    if (isWeekend) {
+                                        document.write(`<div class="selected-time-calendar-day blocked" data-date="${fullDate}" data-tooltip="Weekend: No Practice">${i}</div>`);
+                                    } else {
+                                        document.write(`<div class="selected-time-calendar-day" data-date="${fullDate}">${i}</div>`);
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+        
+                    <!-- October -->
+                    <div class="selected-time-month-box">
+                        <div class="selected-time-month-header">October</div>
+                        <div class="selected-time-day-labels">
+                            <div class="selected-time-day-label">SU</div>
+                            <div class="selected-time-day-label">M</div>
+                            <div class="selected-time-day-label">T</div>
+                            <div class="selected-time-day-label">W</div>
+                            <div class="selected-time-day-label">TH</div>
+                            <div class="selected-time-day-label">F</div>
+                            <div class="selected-time-day-label">S</div>
+                        </div>
+                        <div class="selected-time-calendar-grid">
+                            <script>
+                                // Generate October Calendar
+                                startDay = 2; // Tuesday (October starts on a Tuesday)
+                                daysInMonth = 31;
+
+                                for (let i = 0; i < startDay; i++) {
+                                    document.write('<div class="selected-time-empty-day"></div>');
+                                }
+                                for (let i = 1; i <= daysInMonth; i++) {
+                                    let dayOfWeek = (startDay + i - 1) % 7;
+                                    let isWeekend = (dayOfWeek === 0 || dayOfWeek === 6); // Sunday or Saturday
+                                    const fullDate = `10/${i}`; // Format as "month/day"
+
+                                    if (isWeekend) {
+                                        document.write(`<div class="selected-time-calendar-day blocked" data-date="${fullDate}" data-tooltip="Weekend: No Practice">${i}</div>`);
+                                    } else {
+                                        document.write(`<div class="selected-time-calendar-day" data-date="${fullDate}">${i}</div>`);
+                }
+            }
+                            </script>
+                        </div>
+                    </div>
+        
+                    <!-- November -->
+                    <div class="selected-time-month-box">
+                        <div class="selected-time-month-header">November</div>
+                        <div class="selected-time-day-labels">
+                            <div class="selected-time-day-label">SU</div>
+                            <div class="selected-time-day-label">M</div>
+                            <div class="selected-time-day-label">T</div>
+                            <div class="selected-time-day-label">W</div>
+                            <div class="selected-time-day-label">TH</div>
+                            <div class="selected-time-day-label">F</div>
+                            <div class="selected-time-day-label">S</div>
+                        </div>
+                        <div class="selected-time-calendar-grid">
+                            <script>
+                                // Generate November Calendar
+                                startDay = 5; // Friday (November starts on a Friday)
+                                daysInMonth = 30;
+
+                                for (let i = 0; i < startDay; i++) {
+                                    document.write('<div class="selected-time-empty-day"></div>');
+                                }
+                                for (let i = 1; i <= daysInMonth; i++) {
+                                    let dayOfWeek = (startDay + i - 1) % 7;
+                                    let isWeekend = (dayOfWeek === 0 || dayOfWeek === 6); // Sunday or Saturday
+                                    const fullDate = `11/${i}`; // Format as "month/day"
+
+                                    if (isWeekend) {
+                                        document.write(`<div class="selected-time-calendar-day blocked" data-date="${fullDate}" data-tooltip="Weekend: No Practice">${i}</div>`);
+                                    } else if (i >= 23) { // Special condition for blocked days after 23rd
+                                        document.write(`<div class="selected-time-calendar-day blocked" data-date="${fullDate}" data-tooltip="Blocked: No Practice">${i}</div>`);
+                                    } else {
+                                        document.write(`<div class="selected-time-calendar-day" data-date="${fullDate}">${i}</div>`);
+                                    }
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Category Buttons -->
             <div id="category-buttons">
                 <button onclick="showStats('setting')">Set</button>
@@ -183,20 +316,13 @@
                 <button onclick="showStats('serving')">Serve</button>
                 <button onclick="showStats('passing')">Pass</button>
             </div>
-
-            <!-- Selected Time Periods Section -->
-            <div id="selected-practices-container">
-                <h2>Selected Time Periods</h2>
-                <ul id="selected-practices-list">
-                    <!-- Dynamically populated -->
-                </ul>
-            </div>
-
+        
             <!-- Stats Content -->
             <div id="stats-container">
                 <p>Select a category above to view stats.</p>
             </div>
         </main>
+        
     </div>
 
     <footer>
@@ -235,6 +361,18 @@
             console.error('Error loading player data:', error);
         });
 
+        const startDate = new Date("2024-09-02");
+        const endDate = new Date("2024-11-22");
+        const days = ["Mon", "Tue", "Wed", "Th", "Fr"];
+        let currentWeekStart = new Date(startDate);
+
+        function formatDate(date) {
+            const month = date.getMonth() + 1; // Months are zero-indexed
+            const day = date.getDate();
+            return `${month}/${day}`;
+        }
+
+
 
         function showStats(category) {
             const statsContainer = document.getElementById('stats-container');
@@ -254,7 +392,6 @@
             statsContainer.innerHTML = statsContent;
         }
 
-        // Update player profile based on selection
         function updatePlayerProfile() {
             const selectedPlayerName = document.getElementById('player-selector').value;
             
@@ -270,38 +407,6 @@
                         <p>#${player.jersey_number} - ${player.position}   |   ${player.class}</p>`;
                 });
         }
-        
-       const startDate = new Date("2024-09-23"); // Monday, September 23rd
-        const endDate = new Date("2024-12-13");   // Friday, December 13th
-        const days = ["Mon", "Tue", "Wed", "Th", "Fr"];
-        let currentWeekStart = new Date(startDate);
-
-        function renderPractices() {
-            const practiceBlocks = document.getElementById("practiceBlocks");
-            practiceBlocks.innerHTML = ""; // Clear previous blocks
-
-            for (let i = 0; i < 5; i++) { // 5 weekdays
-                const practiceDate = new Date(currentWeekStart);
-                practiceDate.setDate(currentWeekStart.getDate() + i);
-
-                // Only render dates within the valid range
-                if (practiceDate > endDate) break;
-
-                const block = document.createElement("div");
-                block.className = "practice-block";
-                block.innerHTML = `
-                    ${days[i]} 
-                    <div class="practice-date">${formatDate(practiceDate)}</div>
-                `;
-                practiceBlocks.appendChild(block);
-            }
-        }
-
-        function formatDate(date) {
-            const month = date.getMonth() + 1; // Months are zero-indexed
-            const day = date.getDate();
-            return `${month}/${day}`;
-        }
 
         function nextWeek() {
             const nextWeekStart = new Date(currentWeekStart);
@@ -309,7 +414,10 @@
 
             if (nextWeekStart <= endDate) {
                 currentWeekStart = nextWeekStart;
-                renderPractices();
+
+                // Re-render practices and weeks
+                renderPractices(currentWeekStart, endDate);
+                renderWeeks(new Date(currentWeekStart), endDate);
             }
         }
 
@@ -319,155 +427,63 @@
 
             if (prevWeekStart >= startDate) {
                 currentWeekStart = prevWeekStart;
-                renderPractices();
+
+                // Re-render practices and weeks
+                renderPractices(currentWeekStart, endDate);
+                renderWeeks(new Date(currentWeekStart), endDate);
             }
         }
 
+
         function toggleSection(activeSection) {
-    const content = document.getElementById(`${activeSection}-content`);
-    const section = document.getElementById(activeSection);
+            const content = document.getElementById(`${activeSection}-content`);
+            const section = document.getElementById(activeSection);
 
-    // Check if the section is already visible
-    if (content.style.display === 'block') {
-        // Hide the section
-        resetSections();
-    } else {
-        // Hide all other sections
-        document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
-        document.querySelectorAll('.section').forEach(section => section.classList.add('inactive'));
+            // Check if the section is already visible
+            if (content.style.display === 'block') {
+                // Hide the section
+                resetSections();
+            } else {
+                // Hide all other sections
+                document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
+                document.querySelectorAll('.section').forEach(section => section.classList.add('inactive'));
 
-        // Show the selected section
-        content.style.display = 'block';
-        section.classList.remove('inactive');
-    }
-}
-
+                // Show the selected section
+                content.style.display = 'block';
+                section.classList.remove('inactive');
+            }
+        }
 
         function resetSections() {
             document.querySelectorAll('.content').forEach(content => content.style.display = 'none');
             document.querySelectorAll('.section').forEach(section => section.classList.remove('inactive'));
         }
 
-        // Initial render for practices
-        renderPractices();
-
-        function setupDropdown(selectedContainerId, dropdownId) {
-            const selectedContainer = document.getElementById(selectedContainerId);
-            const dropdown = document.getElementById(dropdownId);
-
-            // Show dropdown when the selected area is clicked
-            selectedContainer.addEventListener('click', () => {
-                dropdown.style.display = 'block';
-            });
-
-            // Hide dropdown if clicked outside
-            document.addEventListener('click', (event) => {
-                if (!selectedContainer.contains(event.target) && !dropdown.contains(event.target)) {
-                    dropdown.style.display = 'none';
-                }
-            });
-        }
-
-        let selectedPractices = []; // Array to track selected practices
-        let selectedWeeks = []; // Array to track selected weeks
-        let selectedMonths = []; // Array to track selected months;
-
-        // Render practices for the current week
-        function renderPractices() {
+        // Render the practices section
+        function renderPractices(currentWeekStart, endDate) {
             const practiceBlocks = document.getElementById("practiceBlocks");
             practiceBlocks.innerHTML = ""; // Clear previous blocks
 
             for (let i = 0; i < 5; i++) { // 5 weekdays
                 const practiceDate = new Date(currentWeekStart);
-                practiceDate.setDate(currentWeekStart.getDate() + i);
+                practiceDate.setDate(currentWeekStart.getDate() + i + 1);
 
-                // Only render dates within the valid range
-                if (practiceDate > endDate) break;
+                const formattedDate = formatDate(practiceDate); // Format as "MM/DD"
 
-                const block = document.createElement("div");
-                block.className = "practice-block";
-                block.textContent = `${days[i]} (${formatDate(practiceDate)})`;
-                block.onclick = () => togglePracticeSelection(formatDate(practiceDate));
-                practiceBlocks.appendChild(block);
-            }
-        }
+                // Render only if the date exists in validPracticeDates
+                if(formattedDate) {
+                    const block = document.createElement("div");
+                    block.className = "practice-block";
+                    block.textContent = `${["M", "T", "W", "Th", "F"][i]} (${formattedDate})`;
+                    block.onclick = () => togglePracticeSelection(formattedDate);
 
-        // Toggle practice selection
-        function togglePracticeSelection(date) {
-            if (selectedPractices.includes(date)) {
-                selectedPractices = selectedPractices.filter(practice => practice !== date);
-            } else {
-                selectedPractices.push(date);
-            }
-            updateSelectedTimePeriods();
-        }
-
-        // Toggle week selection
-        function toggleWeekSelection(weekBox, weekRange) {
-            // Toggle 'selected' class on the clicked week
-            weekBox.classList.toggle("selected");
-
-            if (weekBox.classList.contains("selected")) {
-                // Add weekRange to selectedWeeks if it's not already there
-                if (!selectedWeeks.includes(weekRange)) {
-                    selectedWeeks.push(weekRange);
-                }
-            } else {
-                // Remove weekRange from selectedWeeks if it exists
-                const index = selectedWeeks.indexOf(weekRange);
-                if (index > -1) {
-                    selectedWeeks.splice(index, 1);
+                    practiceBlocks.appendChild(block);
                 }
             }
-
-            console.log("Current Selected Weeks:", selectedWeeks);
-            updateSelectedTimePeriods(); // Update the list after each change
         }
 
-        // Toggle month selection
-        function toggleMonthSelection(monthName) {
-            if (selectedMonths.includes(monthName)) {
-                selectedMonths = selectedMonths.filter(month => month !== monthName);
-            } else {
-                selectedMonths.push(monthName);
-            }
-            updateSelectedTimePeriods();
-        }
-
-        // Update the "Selected Time Periods" list
-        function updateSelectedTimePeriods() {
-            const selectedList = document.getElementById("selected-practices-list");
-            selectedList.innerHTML = ""; // Clear previous list
-
-            const categories = [
-                { title: "Selected Practices", items: selectedPractices },
-                { title: "Selected Weeks", items: selectedWeeks },
-                { title: "Selected Months", items: selectedMonths },
-            ];
-
-            categories.forEach(category => {
-                if (category.items && category.items.length > 0) {
-                    // Add a category header
-                    const categoryHeader = document.createElement("li");
-                    categoryHeader.textContent = category.title;
-                    categoryHeader.style.fontWeight = "bold"; // Optional: Style for clarity
-                    categoryHeader.style.marginTop = "10px"; // Spacing
-                    selectedList.appendChild(categoryHeader);
-
-                    // Add items under the category
-                    category.items.forEach(item => {
-                        const listItem = document.createElement("li");
-                        listItem.textContent = item;
-                        selectedList.appendChild(listItem);
-                    });
-                } else {
-                    console.log(`No items found for ${category.title}`);
-                }
-            });
-        }
-
-        // Render weeks with date ranges
-        function renderWeeks() {
+        // Render the weeks section
+        function renderWeeks(currentWeekStart, endDate) {
             const calendarGrid = document.querySelector(".calendar-grid");
             calendarGrid.innerHTML = ""; // Clear previous content
 
@@ -475,33 +491,39 @@
             while (currentWeekStart <= endDate) {
                 const weekStart = new Date(currentWeekStart);
                 const weekEnd = new Date(weekStart);
-                weekEnd.setDate(weekStart.getDate() + 4); // Friday of the same week
+                weekEnd.setDate(weekStart.getDate() + 5); // Friday of the same week
+
+                // Ensure the week end date doesn't exceed the endDate
+                if (weekEnd.getMonth() !== weekStart.getMonth()) {
+                    const endOfMonth = new Date(weekStart.getFullYear(), weekStart.getMonth() + 1, 0); // Last day of current month
+                    weekEnd.setDate(endOfMonth.getDate()); // Adjust weekEnd to the last day of the current month
+                }
 
                 const weekRange = `${formatDate(weekStart)} - ${formatDate(weekEnd)}`;
-                const weekBox = document.createElement("div");
 
-                weekBox.className = "week-box";
-                weekBox.textContent = `Week ${weekIndex}`;
-                weekBox.title = `${days[0]} ${formatDate(weekStart)} to ${days[4]} ${formatDate(weekEnd)}`;
+                // Render only if the week range exists in validWeekRanges
+                if (weekRange) {
+                    const weekBox = document.createElement("div");
+                    weekBox.className = "week-box";
+                    weekBox.textContent = `Week ${weekIndex}`;
+                    weekBox.title = `${weekRange}`;
+                    weekBox.onclick = () => toggleWeekSelection(weekBox, weekRange);
 
-                weekBox.onclick = () => toggleWeekSelection(weekBox, weekRange);
-
-                calendarGrid.appendChild(weekBox);
+                    calendarGrid.appendChild(weekBox);
+                }
 
                 currentWeekStart.setDate(currentWeekStart.getDate() + 7); // Move to next Monday
                 weekIndex++;
             }
         }
 
-        // Render months by name
         function renderMonths() {
             const monthsTable = document.querySelector(".months-table");
 
             const months = [
-                { name: "September", start: "2024-09-01", end: "2024-09-30" },
+                { name: "September", start: "2024-09-02", end: "2024-09-30" },
                 { name: "October", start: "2024-10-01", end: "2024-10-31" },
-                { name: "November", start: "2024-11-01", end: "2024-11-30" },
-                { name: "December", start: "2024-12-01", end: "2024-12-31" },
+                { name: "November", start: "2024-11-01", end: "2024-11-22" },
             ];
 
             monthsTable.innerHTML = ""; // Clear table
@@ -514,25 +536,109 @@
                 monthsTable.appendChild(monthBox);
             });
         }
-
-        // Format date to MM/DD
-        function formatDate(date) {
-            const month = date.getMonth() + 1; // Months are zero-indexed
-            const day = date.getDate();
-            return `${month}/${day}`;
-        }
-
-        // Initialize default renders
-        renderPractices();
-        renderWeeks();
+       
+        renderPractices(currentWeekStart, endDate);
+        renderWeeks(new Date(currentWeekStart), endDate);
         renderMonths();
 
-        // Initialize dropdown and filters on page load
-        window.onload = () => {
-            populateDropdown('practiceDropdown', practiceData); // Populate dropdown with practice data
-            setupDropdown('selectedPractices', 'practiceDropdown'); // Setup dropdown interaction
-        };
 
+
+        let selectedPractices = [];
+        let selectedWeeks = [];
+        let selectedMonths = [];
+
+       
+
+        function updateCalendarSelections() {
+            // Highlight selected practices
+            selectedPractices.forEach(date => {
+                const practiceElement = document.querySelector(`.selected-time-calendar-day[data-date="${date}"]`);
+                if (practiceElement) {
+                    practiceElement.classList.add("selected-practice");
+                }
+            });
+
+            // Highlight selected weeks
+            selectedWeeks.forEach(weekRange => {
+                const [startDate, endDate] = weekRange.split('-').map(date => date.trim());
+                const [startMonth, startDay] = startDate.split('/').map(Number);
+                const [endMonth, endDay] = endDate.split('/').map(Number);
+
+                for (let day = startDay; day <= endDay; day++) {
+                    const date = `${startMonth}/${day}`;
+                    const weekElement = document.querySelector(`.selected-time-calendar-day[data-date="${date}"]`);
+                    if (weekElement) {
+                        weekElement.classList.add("selected-week");
+                    }
+                }
+            });
+
+            // Highlight selected months
+            selectedMonths.forEach(monthName => {
+                const monthHeaders = document.querySelectorAll('.selected-time-month-header');
+                monthHeaders.forEach(header => {
+                    if (header.textContent.trim() === monthName) {
+                        const monthBox = header.closest(".selected-time-month-box");
+                        const allDays = monthBox.querySelectorAll(".selected-time-calendar-day");
+                        allDays.forEach(day => day.classList.add("selected-month"));
+                    }
+                });
+            });
+        }
+
+        function updateSelectedTimePeriods() {
+            // Clear all existing highlights
+            document.querySelectorAll('.selected-practice, .selected-week, .selected-month').forEach(el => {
+                el.classList.remove('selected-practice', 'selected-week', 'selected-month');
+            });
+
+            // Reapply highlights
+            updateCalendarSelections();
+        }
+
+        function togglePracticeSelection(date) {
+            // Check if the date is already selected
+            if (selectedPractices.includes(date)) {
+                // Remove the date from selectedPractices
+                selectedPractices = selectedPractices.filter(practice => practice !== date);
+            } else {
+                // Add the date to selectedPractices
+                selectedPractices.push(date);
+            }
+            console.log("Current Selected Practices:", selectedPractices);
+            updateSelectedTimePeriods(); // Update the calendar display
+        }
+
+        function toggleWeekSelection(weekBox, weekRange) {
+            // Toggle the "selected" class visually
+            weekBox.classList.toggle("selected");
+
+            if (weekBox.classList.contains("selected")) {
+                // Add the weekRange to selectedWeeks if it's not already there
+                if (!selectedWeeks.includes(weekRange)) {
+                    selectedWeeks.push(weekRange);
+                }
+            } else {
+                // Remove the weekRange from selectedWeeks
+                selectedWeeks = selectedWeeks.filter(week => week !== weekRange);
+            }
+
+            console.log("Current Selected Weeks:", selectedWeeks);
+            updateSelectedTimePeriods(); // Update the calendar display
+        }
+
+        function toggleMonthSelection(monthName) {
+            // Check if the month is already selected
+            if (selectedMonths.includes(monthName)) {
+                // Remove the month from selectedMonths
+                selectedMonths = selectedMonths.filter(month => month !== monthName);
+            } else {
+                // Add the month to selectedMonths
+                selectedMonths.push(monthName);
+            }
+            console.log("Current Selected Months:", selectedMonths);
+            updateSelectedTimePeriods(); // Update the calendar display
+        }
 
     </script>
 </body>
