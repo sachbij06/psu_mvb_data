@@ -459,7 +459,7 @@
             document.querySelectorAll('.section').forEach(section => section.classList.remove('inactive'));
         }
 
-        // Render the practices section
+
         function renderPractices(currentWeekStart, endDate) {
             const practiceBlocks = document.getElementById("practiceBlocks");
             practiceBlocks.innerHTML = ""; // Clear previous blocks
@@ -482,7 +482,6 @@
             }
         }
 
-        // Render the weeks section
         function renderWeeks(currentWeekStart, endDate) {
             const calendarGrid = document.querySelector(".calendar-grid");
             calendarGrid.innerHTML = ""; // Clear previous content
@@ -541,14 +540,11 @@
         renderWeeks(new Date(currentWeekStart), endDate);
         renderMonths();
 
-
-
         let selectedPractices = [];
         let selectedWeeks = [];
         let selectedMonths = [];
 
-       
-
+    
         function updateCalendarSelections() {
             // Highlight selected practices
             selectedPractices.forEach(date => {
