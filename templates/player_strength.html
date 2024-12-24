@@ -79,6 +79,55 @@
                 <h3>Select a Player</h3>
                 <select id="player-selector" onchange="updatePlayerProfile()"></select>
             </div>
+            <div class="legend">
+                <h2 class="sidebar-header">Legend</h2>
+                <div class="sidebar-section" onclick="toggleSection('force-plate', this)">
+                   <span class="sidebar-title">
+                      Force Plate Data
+                      <span class="arrow">▼</span>
+                   </span>
+                   <div id="force-plate" class="sidebar-content">
+                      <p><strong>Peak Power: </strong> Maximum force output during a jump.</p>
+                      <p><strong>FT:CT: </strong>  The ratio of the time an athlete spends in the air (flight time) to the time they spend on the ground producing force (contraction time).</p>
+                      <p><strong>RFD: </strong> Rate of Force Development.</p>
+                      <p><strong>RSI-Mod: </strong> The ratio of an athlete’s jump height to the time spent on the ground producing that jump (ground contact time).</p>
+ 
+                   </div>
+                </div>
+                <div class="sidebar-section" onclick="toggleSection('swing-data', this)">
+                   <span class="sidebar-title">
+                      Swing Data
+                      <span class="arrow">▼</span>
+                   </span>
+                   <div id="swing-data" class="sidebar-content">
+                      <p><strong>Swing Speed:</strong> Velocity of the arm swing in m/s.</p>
+                      <p><strong>Contact Angle:</strong> Angle of the arm at contact.</p>
+                      <p><strong>Pulse Timing:</strong> Timing sync with jump.</p>
+                   </div>
+                </div>
+                <div class="sidebar-section" onclick="toggleSection('jump-data', this)">
+                   <span class="sidebar-title">
+                      Jump Data
+                      <span class="arrow">▼</span>
+                   </span>
+                   <div id="jump-data" class="sidebar-content">
+                      <p><strong>Vert:</strong> Vertical jump height.</p>
+                      <p><strong>Flight Time:</strong> Duration airborne.</p>
+                      <p><strong>Ground Time:</strong> Contact time.</p>
+                   </div>
+                </div>
+                <div class="sidebar-section" onclick="toggleSection('pr-data', this)">
+                   <span class="sidebar-title">
+                      PR Data
+                      <span class="arrow">▼</span>
+                   </span>
+                   <div id="pr-data" class="sidebar-content">
+                      <p><strong>Squat PR:</strong> Personal best squat weight.</p>
+                      <p><strong>Bench PR:</strong> Personal best bench press.</p>
+                      <p><strong>Deadlift PR:</strong> Personal best deadlift.</p>
+                   </div>
+                </div>
+             </div>
         </aside>
 
         <!-- MAIN DASHBOARD AREA -->
@@ -131,6 +180,19 @@
                 console.error('Error loading player data:', error);
             });
 
+
+        function toggleSection(sectionId, element) {
+            const content = document.getElementById(sectionId);
+            const arrow = element.querySelector('.arrow');
+            if (content.style.display === "block") {
+               content.style.display = "none";
+               arrow.innerHTML = "▼"; // Change to down arrow
+            } else {
+               content.style.display = "block";
+               arrow.innerHTML = "▲"; // Change to up arrow
+            }
+        }
+
         // Update the player profile when a player is selected
         function updatePlayerProfile() {
             const selectedPlayerName = document.getElementById('player-selector').value;
@@ -177,22 +239,22 @@
         });
 
 
-    function toggleDropdown(dropdownId) {
-        document.getElementById(dropdownId).classList.toggle("show");
-}
+        function toggleDropdown(dropdownId) {
+            document.getElementById(dropdownId).classList.toggle("show");
+    }
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function (event) {
-        if (!event.target.matches('.dropbtn')) {
-            const dropdowns = document.getElementsByClassName("dropdown-content");
-            for (let i = 0; i < dropdowns.length; i++) {
-                const openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                const dropdowns = document.getElementsByClassName("dropdown-content");
+                for (let i = 0; i < dropdowns.length; i++) {
+                    const openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
                 }
             }
-        }
-    };
+        };
 
     </script>
 </body>

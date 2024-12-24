@@ -156,23 +156,23 @@
         });
 
         function toggleSection(sectionId, element) {
-      const content = document.getElementById(sectionId);
-      const arrow = element.querySelector('.arrow');
-      if (content.style.display === "block") {
-         content.style.display = "none";
-         arrow.innerHTML = "▼"; // Change to down arrow
-      } else {
-         content.style.display = "block";
-         arrow.innerHTML = "▲"; // Change to up arrow
-      }
-   }
+            const content = document.getElementById(sectionId);
+            const arrow = element.querySelector('.arrow');
+            if (content.style.display === "block") {
+               content.style.display = "none";
+               arrow.innerHTML = "▼"; // Change to down arrow
+            } else {
+               content.style.display = "block";
+               arrow.innerHTML = "▲"; // Change to up arrow
+            }
+         }
 
-   // Initialize sections as collapsed
-   document.addEventListener("DOMContentLoaded", () => {
-      document.querySelectorAll('.sidebar-content').forEach(section => {
-         section.style.display = "none";
-      });
-   });
+         // Initialize sections as collapsed
+         document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.sidebar-content').forEach(section => {
+               section.style.display = "none";
+            });
+         });
 
          // Display Stats Based on Category
           function showStats(category){ 
